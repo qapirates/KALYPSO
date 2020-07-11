@@ -1,0 +1,148 @@
+Jul 11, 2020 3:12:36 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:12:36 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 31.4, Time Stamp: 2020-07-11
+Jul 11, 2020 3:12:43 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:12:44 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:12:44 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 31.4, Time Stamp: 2020-07-11
+Jul 11, 2020 3:12:54 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 31.4, Time Stamp: 2020-07-11
+Jul 11, 2020 3:12:56 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 31.4, Time Stamp: 2020-07-11
+Jul 11, 2020 3:17:01 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.SocketTimeoutException: connect timed out , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:17:02 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 33.3, Time Stamp: 2020-07-11
+Jul 11, 2020 3:17:18 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:17:19 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:17:19 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.8, Time Stamp: 2020-07-11
+Jul 11, 2020 3:17:25 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:17:26 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:17:26 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.7, Time Stamp: 2020-07-11
+Jul 11, 2020 3:17:43 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:17:44 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:17:44 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.5, Time Stamp: 2020-07-11
+Jul 11, 2020 3:17:50 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:17:51 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:17:51 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.5, Time Stamp: 2020-07-11
+Jul 11, 2020 3:18:08 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:09 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:09 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.3, Time Stamp: 2020-07-11
+Jul 11, 2020 3:18:15 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:16 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:16 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.3, Time Stamp: 2020-07-11
+Jul 11, 2020 3:18:33 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:34 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:34 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.2, Time Stamp: 2020-07-11
+Jul 11, 2020 3:18:40 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:41 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:41 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.2, Time Stamp: 2020-07-11
+Jul 11, 2020 3:18:58 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:58 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:18:58 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.1, Time Stamp: 2020-07-11
+Jul 11, 2020 3:19:05 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:06 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:06 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.0, Time Stamp: 2020-07-11
+Jul 11, 2020 3:19:22 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:23 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:23 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 31.9, Time Stamp: 2020-07-11
+Jul 11, 2020 3:19:30 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:31 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:31 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 32.0, Time Stamp: 2020-07-11
+Jul 11, 2020 3:19:47 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:48 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:48 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 31.9, Time Stamp: 2020-07-11
+Jul 11, 2020 3:19:55 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:56 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:19:56 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 31.9, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:12 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:20:13 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:20:13 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 31.8, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:20 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:20:21 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: piratesbay-chipper-roan-rs.eu-gb.mybluemix.net , Params: https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData
+Jul 11, 2020 3:20:21 PM Model.PayloadBuffer push
+INFO: Value is pushed into the buffer -- Water Temperature: 31.8, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:28 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 33.3, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:30 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.8, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:32 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.7, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:33 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.5, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:36 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.5, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:38 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.3, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:39 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.3, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:41 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.2, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:43 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.2, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:44 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.1, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:46 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.0, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:47 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 31.9, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:49 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 32.0, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:51 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 31.9, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:53 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 31.9, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:55 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 31.8, Time Stamp: 2020-07-11
+Jul 11, 2020 3:20:56 PM Controller.BufferHandler sendBufferedDataToTheHost
+INFO: VALUE UPLOADED FROM BUFFER: -- Water Temperature: 31.8, Time Stamp: 2020-07-11

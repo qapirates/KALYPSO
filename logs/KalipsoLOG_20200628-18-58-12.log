@@ -1,0 +1,26 @@
+Jun 28, 2020 6:58:14 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: dummy.restapiexample.com , Params: http://dummy.restapiexample.com/api/v1/create
+Jun 28, 2020 6:58:14 PM Model.PayloadBuffer push
+INFO: Value pushed in buffer : 0.65333176
+Jun 28, 2020 6:58:21 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: dummy.restapiexample.com , Params: http://dummy.restapiexample.com/api/v1/create
+Jun 28, 2020 6:58:23 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: dummy.restapiexample.com , Params: http://dummy.restapiexample.com/api/v1/create
+Jun 28, 2020 6:58:23 PM Model.PayloadBuffer push
+INFO: Value pushed in buffer : 0.88800985
+Jun 28, 2020 6:58:30 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: dummy.restapiexample.com , Params: http://dummy.restapiexample.com/api/v1/create
+Jun 28, 2020 6:58:32 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: dummy.restapiexample.com , Params: http://dummy.restapiexample.com/api/v1/create
+Jun 28, 2020 6:58:32 PM Model.PayloadBuffer push
+INFO: Value pushed in buffer : 0.7897267
+Jun 28, 2020 6:58:39 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.UnknownHostException: dummy.restapiexample.com , Params: http://dummy.restapiexample.com/api/v1/create
+Jun 28, 2020 6:58:58 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.NoRouteToHostException: No route to host: connect , Params: http://dummy.restapiexample.com/api/v1/create
+Jun 28, 2020 6:59:00 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.NoRouteToHostException: No route to host: connect , Params: http://dummy.restapiexample.com/api/v1/create
+Jun 28, 2020 6:59:00 PM Model.PayloadBuffer push
+INFO: Value pushed in buffer : 0.12985772
+Jun 28, 2020 6:59:07 PM Controller.CallHandler PostMethod
+SEVERE: Encountered problem in POST request: Stack: java.net.NoRouteToHostException: No route to host: connect , Params: http://dummy.restapiexample.com/api/v1/create
