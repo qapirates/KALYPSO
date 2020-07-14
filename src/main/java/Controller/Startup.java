@@ -3,7 +3,7 @@ package Controller;
  *
  * **********************************************************************
  * Developer     :  A Nandy
- * PROJECT       :  Kalipso
+ * PROJECT       :  Kalypso
  * FILENAME      :  Startup.java
  * REF			 :  MAIN
  * **********************************************************************
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 import Model.Payload;
 import Model.PayloadBuffer;
-import Singletone.Singletons;
+import singleton.Singletons;
 
 public class Startup {
 	static float temperatureValue;
@@ -38,7 +38,7 @@ public class Startup {
 				int val = Integer.parseInt(args[1]);
 				if (val > 0 && val <= 24 * 60) {
 					SensorIntervals = val;
-					System.out.println("Scan Interval: " + val);
+					System.out.println("Scan Interval: " + SensorIntervals);
 				} else {
 					System.out.println("Scan Interval is set to default");
 				}

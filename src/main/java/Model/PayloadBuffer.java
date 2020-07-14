@@ -28,9 +28,12 @@ public class PayloadBuffer {
 			lengthOfBuffer = (int)(24 * 60) / SensorIntervals;  // A day long buffer
 			buffer = new LinkedList<>();
 		} catch (Exception e) {
-			System.err.println("Encountered problem. Can not allocate buffer. System exits with error"); e.printStackTrace();
-			_logger.log(Level.SEVERE, "Encountered problem. Can not allocate buffer. System exits with error : Stack: "+e.getMessage());
-			System.exit(1);
+			System.err.println("Encountered problem. Can not allocate buffer from user settings. Default buffer will be allocated."); e.printStackTrace();
+			_logger.log(Level.SEVERE, "Encountered problem. Can not allocate buffer from user settings. Default buffer will be allocated : Stack: "+e.getMessage());
+			System.gc();
+			lengthOfBuffer = 48; // A day long buffer with 30 mins interval
+			buffer = null;
+			buffer = new LinkedList<>();
 		}
 	}
 	

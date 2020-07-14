@@ -22,7 +22,7 @@ import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.w1.W1Master;
 import com.pi4j.temperature.TemperatureScale;
 
-import Singletone.Singletons;
+import singleton.Singletons;
 
 import com.pi4j.system.SystemInfo;
 
