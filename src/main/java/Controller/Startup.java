@@ -5,7 +5,7 @@ package Controller;
  * Developer     :  A Nandy
  * PROJECT       :  Kalypso
  * FILENAME      :  Startup.java
- * REF			 :  MAIN
+ * REF			:  MAIN
  * **********************************************************************
  */
 
@@ -20,9 +20,16 @@ import Model.PayloadBuffer;
 import singleton.Singletons;
 
 public class Startup {
-	static float temperatureValue;
-	public static int SensorIntervals = 30; // in minutes DEFAULT
-
+	static float temperature;
+	static float pH;
+	static float particles;
+	static float o2;
+	static float salinity;
+	static String dateTimeNow;
+	static DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	static int SensorIntervals = 30; // in minutes DEFAULT
+	
+	
 	public static void main(String[] args) {
 		if (args.length > 0) {
 			if (args[0].contains("--help")) {
@@ -48,40 +55,50 @@ public class Startup {
 		 	-------------------------------------------------------------------		*/
 			Logger logger = Singletons.startLogger();
 			PayloadBuffer payBuff = new PayloadBuffer(logger, SensorIntervals);
-			BufferHandler bufhandle = new BufferHandler(logger);
+			DataHandler handle = new DataHandler(logger);
 			GPIO gpio = new GPIO(logger);
-			CallHandler httpCallHandler = new CallHandler(logger);
+			CallHandler httpCallHandler = new CallHandler(logger, handle);
 			Payload payload = new Payload();
-			
+			handle.SensorIntervals = SensorIntervals;
 	   /*  --------------------------------------------------------------------
 		  ----------------------------------------------------------------------	*/
-			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		while (true) {
 			try {
 
-				bufhandle.sendBufferedDataToTheHost(payBuff, httpCallHandler, payload, gpio);
+				handle.sendBufferedDataToTheHost(payBuff, httpCallHandler, payload, gpio);
 				
-				temperatureValue = (float) gpio.getWaterTemperature();
-				System.out.println("WATER TEMPERATURE: "+temperatureValue);
+				temperature = (float) gpio.getWaterTemperature();
+				System.out.println("WATER TEMPERATURE: "+temperature);
+				pH = (float) gpio.getWaterpH();
+				System.out.println("WATER pH: "+pH);
+				particles = (float) gpio.getWaterTurbidity();
+				System.out.println("WATER PARTICLES: "+particles);
+				o2 = (float) gpio.getWaterO2();
+				System.out.println("WATER DISSOLVED OXYGEN: "+o2);
+				salinity = (float) gpio.getWaterSalinity();
+				System.out.println("WATER SALINITY: "+salinity);				
+				dateTimeNow = format.format(new Date()).replace(" ", "T");
 				
-				String dateTimeNow = format.format(new Date());
-				boolean isSuccess = httpCallHandler.PostMethod(Singletons.CREATE, payload.PayLoad_For_Create(temperatureValue, dateTimeNow));
+				boolean isSuccess = httpCallHandler.PostMethod(Singletons.POST_AND_GETSettings, payload.
+						PayLoad_For_Create(handle.GUID,temperature,pH,particles,o2,salinity,dateTimeNow));
 
 				if (!isSuccess) {
-					payBuff.push(temperatureValue, dateTimeNow);
+					payBuff.push(temperature,pH,particles,o2,salinity, dateTimeNow);
 					gpio.indicateProcessNotOk();
 				} 
 				else{ 
 					gpio.indicateProcessOk();
 				}
-				
-				Thread.sleep(5 * 1000);
+				handle.updateDeviceSettings(payBuff);
+				Thread.sleep(handle.SensorIntervals / 6 * 1000);
 				
 			} catch (Exception ex) {
 				System.err.println("Encountered problem in main procedure :: ");
 				gpio.resetGPIOInternalParams();
 				logger.log(Level.SEVERE, "Encountered problem in main procedure :: Stack: " + ex);
 				System.gc();
+				try {Thread.sleep(handle.SensorIntervals/6 * 1000);
+				} catch (InterruptedException e) {}
 			}
 		}
 	}
@@ -98,27 +115,4 @@ public class Startup {
 	}
 }
 
-final class BufferHandler {
-	private Logger _logger = null;
 
-	BufferHandler(Logger logger) {
-		this._logger = logger;
-	}
-
-	void sendBufferedDataToTheHost(PayloadBuffer payBuff, CallHandler httpCallHandler, Payload payload, GPIO gpio) {
-		if (payBuff.buffer.isEmpty())
-			return;
-
-		while (payBuff.buffer.iterator().hasNext()) {
-			payBuff.param = payBuff.buffer.peek();
-			boolean isSuccess = httpCallHandler.PostMethod(Singletons.CREATE, payload.PayLoad_For_Create(payBuff.param.getwaterTemperature(), payBuff.param.getdateTimeStamp()));
-			if (!isSuccess) {
-				break;
-			} else {
-				payBuff.buffer.poll();
-				_logger.log(Level.INFO, "VALUE UPLOADED FROM BUFFER: -- Water Temperature: "+payBuff.param.getwaterTemperature()+", Time Stamp: " +payBuff.param.getdateTimeStamp());
-				gpio.indicateProcessOk();
-			}
-		}
-	}
-}

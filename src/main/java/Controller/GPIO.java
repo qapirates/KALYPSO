@@ -3,9 +3,9 @@ package Controller;
  *
  * **********************************************************************
  * Developer     :  A Nandy
- * PROJECT       :  Kalipso
+ * PROJECT       :  Kalypso
  * FILENAME      :  GPIO.java
- * REF			 :  pi4j
+ * REF			:  pi4j
  * **********************************************************************
  */
 
@@ -29,6 +29,10 @@ import com.pi4j.system.SystemInfo;
 public final class GPIO implements Singletons {
 	private Logger _logger = null;
 	private double _temperatureValueInCelc;
+	private double _pHValue;
+	private double _turbidityInNTU;
+	private double _waterDoInMgL;
+	private double _waterSalinityInPpm;
 	private GpioController _gpio = null;
 	private GpioPinDigitalOutput pin29 = null; // led
 	private W1Master w1Master = null; 
@@ -37,10 +41,18 @@ public final class GPIO implements Singletons {
 		this._logger = logger;
 		w1Master = new W1Master();
 		_temperatureValueInCelc = Float.MAX_VALUE; //init with limit
+		_pHValue = Float.MAX_VALUE;
+		_turbidityInNTU = Float.MAX_VALUE;
+		_waterDoInMgL = Float.MAX_VALUE;
+		_waterSalinityInPpm = Float.MAX_VALUE;
 	}
 	
 	public void resetGPIOInternalParams() {
 		_temperatureValueInCelc = Float.MAX_VALUE;
+		_pHValue = Float.MAX_VALUE;
+		_turbidityInNTU = Float.MAX_VALUE;
+		_waterDoInMgL = Float.MAX_VALUE;
+		_waterSalinityInPpm = Float.MAX_VALUE;
 		resetGPIOs();
 	}
 	
@@ -56,7 +68,7 @@ public final class GPIO implements Singletons {
 	}
 	
 	public double getWaterTemperature(){
-		_temperatureValueInCelc = Float.MIN_VALUE;
+		_temperatureValueInCelc = Float.MAX_VALUE;
         for (TemperatureSensor device : w1Master.getDevices(TemperatureSensor.class)) {
             //System.out.printf("%-20s %3.1f°C %3.1f°F\n", device.getName(), device.getTemperature(), device.getTemperature(TemperatureScale.CELSIUS));
             if(device.getName().contains(tmpSense_DS18B20)){
@@ -65,6 +77,22 @@ public final class GPIO implements Singletons {
             }
         }
 		return _temperatureValueInCelc;
+	}	
+	public double getWaterpH(){
+		_pHValue = 6.80f;  //ideal
+		return _pHValue;
+	}	
+	public double getWaterTurbidity(){
+		_turbidityInNTU = 5.01f;  //ideal
+		return _turbidityInNTU;
+	}	
+	public double getWaterO2(){
+		_waterDoInMgL = 7.12f;  //ideal
+		return _waterDoInMgL;
+	}
+	public double getWaterSalinity(){
+		_waterSalinityInPpm = 3000.00f ;  //ideal
+		return _waterSalinityInPpm;
 	}
 
 
@@ -120,37 +148,44 @@ public final class GPIO implements Singletons {
 
 
 
-//public void readReturnRawTemperatureValue() {
-//	try {
-//		// ready the input pin to listen up
-//		pin38.addListener(new GpioPinListenerDigital() {
-//			@Override
-//			public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-//				System.out.println(" --> _Temperature_Probe_ GPIO PIN STATE CHANGED: " + event.getPin() + " = " + event.getState());
-//				_temperatureValueInCelc = event.getPin().
-//			}
-//
-//		});
-//
-//		pin16.toggle();
-//		System.out.println("--> GPIO MockProbe state ==> " + pin16.getState());
-//		Thread.sleep(5000);
-//		pin16.toggle();
-//		System.out.println("--> GPIO MockProbe state ==> " + pin16.getState());
-//		Thread.sleep(5000);
-//
-//		// stop all GPIO activity/threads by shutting down the GPIO controller
-//		// (this method will forcefully shutdown all GPIO monitoring threads and
-//		// scheduled tasks)
-//		gpio.shutdown();
-//		gpio.unprovisionPin(pin16);
-//		gpio.unprovisionPin(pin38);
-//	} catch (Exception e) {
-//		System.err.println("Encountered problem in GPIO request: ");
-//		e.printStackTrace();
-//		_logger.log(Level.WARNING, "Encountered problem in GPIO request: Stack: " + e.toString());
-//	} finally {
-//
-//	}
-//}
+
 }
+
+
+
+
+
+
+//public void readReturnRawTemperatureValue() {
+//try {
+//	// ready the input pin to listen up
+//	pin38.addListener(new GpioPinListenerDigital() {
+//		@Override
+//		public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
+//			System.out.println(" --> _Temperature_Probe_ GPIO PIN STATE CHANGED: " + event.getPin() + " = " + event.getState());
+//			_temperatureValueInCelc = event.getPin().
+//		}
+//
+//	});
+//
+//	pin16.toggle();
+//	System.out.println("--> GPIO MockProbe state ==> " + pin16.getState());
+//	Thread.sleep(5000);
+//	pin16.toggle();
+//	System.out.println("--> GPIO MockProbe state ==> " + pin16.getState());
+//	Thread.sleep(5000);
+//
+//	// stop all GPIO activity/threads by shutting down the GPIO controller
+//	// (this method will forcefully shutdown all GPIO monitoring threads and
+//	// scheduled tasks)
+//	gpio.shutdown();
+//	gpio.unprovisionPin(pin16);
+//	gpio.unprovisionPin(pin38);
+//} catch (Exception e) {
+//	System.err.println("Encountered problem in GPIO request: ");
+//	e.printStackTrace();
+//	_logger.log(Level.WARNING, "Encountered problem in GPIO request: Stack: " + e.toString());
+//} finally {
+//
+//}
+//}

@@ -3,7 +3,7 @@ package singleton;
 *
 * **********************************************************************
 * Developer     :  A Nandy
-* PROJECT       :  Kalipso
+* PROJECT       :  Kalypso
 * FILENAME      :  Singletones.java
 * REF			:  Singleton / Constants
 * **********************************************************************
@@ -21,16 +21,17 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public interface Singletons {
-	//sensor actual id
-	final String tmpSense_DS18B20 = "28-030597943779";
-	final String CREATE = "https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/ActualData";
-	//final String GET_A_VALUE = "https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/values/6";
+	
+	final int MyDeviceId = 1;
+	final String MACid = "B8-27-EB-83-6A-F5";
+	final String tmpSense_DS18B20 = "28-030597943779"; 	//sensor actual id
+	final String POST_AND_GETSettings = "https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/SesorDataSet";
 	
 	static Logger startLogger() {
 
 	    DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HH-mm-ss");
 	    Date date = new Date();
-	    String fileName = "KalipsoLOG_"+dateFormat.format(date);
+	    String fileName = "KalypsoLOG_"+dateFormat.format(date);
 
 	    Logger LOGGER = Logger.getLogger(fileName);
 	    LOGGER.setUseParentHandlers(false);
