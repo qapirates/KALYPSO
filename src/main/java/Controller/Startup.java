@@ -27,7 +27,7 @@ public class Startup {
 	static float salinity;
 	static String dateTimeNow;
 	static DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	static int SensorIntervals = 30; // in minutes DEFAULT
+	static int SensorIntervals = 15; // in minutes DEFAULT
 	
 	
 	public static void main(String[] args) {
@@ -64,11 +64,10 @@ public class Startup {
 		  ----------------------------------------------------------------------	*/
 		while (true) {
 			try {
-
 				handle.sendBufferedDataToTheHost(payBuff, httpCallHandler, payload, gpio);
 				
 				temperature = (float) gpio.getWaterTemperature();
-				System.out.println("WATER TEMPERATURE: "+temperature);
+				System.out.println("---->\nWATER TEMPERATURE: "+temperature);
 				pH = (float) gpio.getWaterpH();
 				System.out.println("WATER pH: "+pH);
 				particles = (float) gpio.getWaterTurbidity();
@@ -89,7 +88,9 @@ public class Startup {
 				else{ 
 					gpio.indicateProcessOk();
 				}
+				
 				handle.updateDeviceSettings(payBuff);
+				
 				Thread.sleep(handle.SensorIntervals / 6 * 1000);
 				
 			} catch (Exception ex) {

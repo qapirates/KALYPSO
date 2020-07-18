@@ -28,9 +28,8 @@ public class PayloadBuffer {
 			lengthOfBuffer = (24 * 60) / SensorIntervals;  // A day long buffer
 			buffer = new LinkedList<>();
 		} catch (Exception e) {
-			System.err.println("Encountered problem. Can not allocate buffer from user settings. Default buffer will be allocated."); e.printStackTrace();
-			_logger.log(Level.SEVERE, "Encountered problem. Can not allocate buffer from user settings. Default buffer will be allocated : Stack: "+e.getMessage());
-			System.gc();
+			System.err.println("Can not allocate buffer for 1st time. Default buffer will be allocated."); e.printStackTrace();
+			_logger.log(Level.SEVERE, "Can not allocate buffer for the first time. Default buffer will be allocated : Stack: "+e.getMessage());
 			lengthOfBuffer = 48; // A day long buffer with 30 mins interval
 			buffer = null;
 			buffer = new LinkedList<>();
@@ -38,9 +37,22 @@ public class PayloadBuffer {
 	}
 	
 	public void push(float waterTemperature,float pH,float turbidity,float o2,float salinity, String dateTimeStamp) {
-		if(buffer.size() == lengthOfBuffer) buffer.clear();
-		buffer.add(new DoubleQueue(waterTemperature, pH, turbidity, o2, salinity, dateTimeStamp));
-		_logger.log(Level.INFO, "Values pushed into the buffer -- Water Params: 1:"+waterTemperature+",2:"+pH+",3:"+ turbidity+",4:"+ o2+",5:"+ salinity+",TimeStamp:" +dateTimeStamp);
+		try{
+			if(buffer.size() >= lengthOfBuffer){
+				buffer.clear();
+				System.out.println("Buffer cleared. legth: "+lengthOfBuffer);
+				_logger.log(Level.INFO, "Buffer cleared. legth: "+lengthOfBuffer);
+			}
+			buffer.add(new DoubleQueue(waterTemperature, pH, turbidity, o2, salinity, dateTimeStamp));
+			_logger.log(Level.INFO, "Values pushed into buffer -- Water Params: 1:"+waterTemperature+",2:"+pH+",3:"+ turbidity+",4:"+ o2+",5:"+ salinity+",TimeStamp:" +dateTimeStamp);
+			System.out.println("Values pushed into the buffer");
+		}catch (Exception e) {
+			System.err.println("Memory problemr. Reseting buffer");
+			_logger.log(Level.SEVERE, "Memory problem. Reseting buffer: Stack: "+e.getMessage());
+			buffer = null;
+			System.gc();
+			buffer = new LinkedList<>();
+		}
 	}
 	
 	public void reformBuffer(int SensorIntervals){

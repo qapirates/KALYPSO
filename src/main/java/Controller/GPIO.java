@@ -40,19 +40,19 @@ public final class GPIO implements Singletons {
 	public GPIO(Logger logger) {
 		this._logger = logger;
 		w1Master = new W1Master();
-		_temperatureValueInCelc = Float.MAX_VALUE; //init with limit
-		_pHValue = Float.MAX_VALUE;
-		_turbidityInNTU = Float.MAX_VALUE;
-		_waterDoInMgL = Float.MAX_VALUE;
-		_waterSalinityInPpm = Float.MAX_VALUE;
+		_temperatureValueInCelc = Float.MIN_VALUE; //init with limit
+		_pHValue = Float.MIN_VALUE;
+		_turbidityInNTU = Float.MIN_VALUE;
+		_waterDoInMgL = Float.MIN_VALUE;
+		_waterSalinityInPpm = Float.MIN_VALUE;
 	}
 	
 	public void resetGPIOInternalParams() {
-		_temperatureValueInCelc = Float.MAX_VALUE;
-		_pHValue = Float.MAX_VALUE;
-		_turbidityInNTU = Float.MAX_VALUE;
-		_waterDoInMgL = Float.MAX_VALUE;
-		_waterSalinityInPpm = Float.MAX_VALUE;
+		_temperatureValueInCelc = Float.MIN_VALUE;
+		_pHValue = Float.MIN_VALUE;
+		_turbidityInNTU = Float.MIN_VALUE;
+		_waterDoInMgL = Float.MIN_VALUE;
+		_waterSalinityInPpm = Float.MIN_VALUE;
 		resetGPIOs();
 	}
 	
@@ -68,7 +68,7 @@ public final class GPIO implements Singletons {
 	}
 	
 	public double getWaterTemperature(){
-		_temperatureValueInCelc = Float.MAX_VALUE;
+		_temperatureValueInCelc = Float.MIN_VALUE;
         for (TemperatureSensor device : w1Master.getDevices(TemperatureSensor.class)) {
             //System.out.printf("%-20s %3.1f°C %3.1f°F\n", device.getName(), device.getTemperature(), device.getTemperature(TemperatureScale.CELSIUS));
             if(device.getName().contains(tmpSense_DS18B20)){

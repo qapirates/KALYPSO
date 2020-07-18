@@ -14,41 +14,35 @@ import singleton.Singletons;
 
 
 public final class Payload implements Singletons {
+	StringBuilder sb =  null; 
 	public String PayLoad_For_Create(String Guid , float temperature, float pH, float turbidity , float o2, float salinity, String dateTimeNow) throws UnsupportedOperationException {
 		if(dateTimeNow == null || Guid==null || dateTimeNow.trim().length()==0 || Guid.trim().length()==0) 
 			throw new UnsupportedOperationException("PayLoad_For_Create : NULL in payload params");
 		try {
+		    sb = new StringBuilder();
+			sb.append("{"); 
+			sb.append("\"DeviceId\": "); sb.append(Singletons.MyDeviceId); 
+			sb.append(",\"Guid\":\""); sb.append(Guid);
+			sb.append("\",\"MacID\":\""); sb.append(Singletons.MACid);
+			sb.append("\",\"dateTime\":\""); sb.append(dateTimeNow); 
+			sb.append("\",\"DataSet\": [ {"); 
+			sb.append("\"ParameterID\":1,"); 
+			sb.append("\"Value\":"); sb.append(temperature);
+			sb.append("},{"); 
+			sb.append("\"ParameterID\":2,"); 
+			sb.append("\"Value\":"); sb.append(pH); 
+			sb.append("},{"); 
+			sb.append("\"ParameterID\":3,"); 
+			sb.append("\"Value\":"); sb.append(turbidity); 
+			sb.append("},{"); 
+			sb.append("\"ParameterID\":4,"); 
+			sb.append("\"Value\":"); sb.append(o2); 
+			sb.append("},{");
+			sb.append("\"ParameterID\":5,"); 
+			sb.append("\"Value\":"); sb.append(salinity); 
+			sb.append("} ] }");
 			
-			String payLd = "{\r\n" + 
-					"    \"DeviceId\": "+ Singletons.MyDeviceId +",\r\n" + 
-					"    \"Guid\":\"" + Guid  +"\",\r\n" + 
-					"    \"MacID\":\""+ Singletons.MACid +"\",\r\n" + 
-					"    \"dateTime\":\""+ dateTimeNow +"\",\r\n" + 
-					"    \"DataSet\": [\r\n" + 
-					"        {\r\n" + 
-					"            \"ParameterID\":1,\r\n" + 
-					"            \"Value\":"+ temperature +"\r\n" + 
-					"        },\r\n" + 
-					"        {\r\n" + 
-					"            \"ParameterID\":2,\r\n" + 
-					"            \"Value\":"+ pH +"\r\n" + 
-					"        },\r\n" + 
-					"        {\r\n" + 
-					"            \"ParameterID\":3,\r\n" + 
-					"            \"Value\":"+ turbidity +"\r\n" + 
-					"        },\r\n" + 
-					"        {\r\n" + 
-					"            \"ParameterID\":4,\r\n" + 
-					"            \"Value\":"+ o2 +"\r\n" + 
-					"        },\r\n" + 
-					"        {\r\n" + 
-					"            \"ParameterID\":5,\r\n" + 
-					"            \"Value\":"+ salinity +"\r\n" + 
-					"        }\r\n" + 
-					"    ]\r\n" + 
-					" \r\n" + 
-					"}";
-			return payLd;
+			return sb.toString();
 		} catch (Exception e) {
 			throw new UnsupportedOperationException("PayLoad_For_Create : Payload is NULL");
 		}

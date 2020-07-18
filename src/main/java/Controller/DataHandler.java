@@ -34,7 +34,9 @@ public final class DataHandler implements Singletons{
 		if(MyDeviceID != Singletons.MyDeviceId || updated == false){
 			return;
 		}
-		buff.reformBuffer(SensorIntervals);		
+		buff.reformBuffer(SensorIntervals);	
+		
+		System.out.println("Device settings are updated\n\n");
 		}catch(Exception e){
 			System.err.println("Encountered problem in updateDeviceSettings: "+e.getMessage());
 			_logger.log(Level.WARNING, "Encountered problem in updateDeviceSettings: Stack: "+e.toString()); 
@@ -48,6 +50,7 @@ public final class DataHandler implements Singletons{
 
 		while (payBuff.buffer.iterator().hasNext()) {
 			payBuff.param = payBuff.buffer.peek();
+			if(payBuff.param == null) continue;
 			boolean isSuccess = httpCallHandler.PostMethod(Singletons.POST_AND_GETSettings, payload.
 					PayLoad_For_Create(GUID, payBuff.param.getwaterTemperature(),payBuff.param.getwaterpH(),payBuff.param.getWaterTurbidity(),payBuff.param.getwaterO2(),payBuff.param.getwaterSalinity(), payBuff.param.getdateTimeStamp()));
 			if (!isSuccess) {
@@ -55,6 +58,7 @@ public final class DataHandler implements Singletons{
 				break;
 			} else {
 				payBuff.buffer.poll();
+				System.out.println("VALUE UPLOADED FROM BUFFER");
 				_logger.log(Level.INFO, "VALUE UPLOADED FROM BUFFER: -- Water Params: 1:"+payBuff.param.getwaterTemperature()+",2:"+payBuff.param.getwaterpH()+",3:"+ payBuff.param.getWaterTurbidity()+",4:"+ payBuff.param.getwaterO2()+",5:"+ payBuff.param.getwaterSalinity()+", " +payBuff.param.getdateTimeStamp());
 				gpio.indicateProcessOk();
 				payBuff.param=null;

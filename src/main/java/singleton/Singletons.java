@@ -25,7 +25,7 @@ public interface Singletons {
 	final int MyDeviceId = 1;
 	final String MACid = "B8-27-EB-83-6A-F5";
 	final String tmpSense_DS18B20 = "28-030597943779"; 	//sensor actual id
-	final String POST_AND_GETSettings = "https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/SesorDataSet";
+	final String POST_AND_GETSettings = "https://piratesbay-chipper-roan-rs.eu-gb.mybluemix.net/api/SensorDataSet";
 	
 	static Logger startLogger() {
 

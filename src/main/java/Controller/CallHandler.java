@@ -118,10 +118,15 @@ public final class CallHandler {
 			} catch (IOException e) {}
 		}
 		String res = response.toString();
-		System.out.println("\n\nRESPONSE: POST Ok");
 		mapNewSettings(res);
-		if((code == 201 || code == 200) && !res.equals("{}")) return true;
-		else return false;
+		if((code == 201 || code == 200) && !res.equals("{}")){
+			System.out.println("POSTed to the host");
+			return true;
+		}
+		else{
+			System.out.println("Can not POST to the host");
+			return false;
+		}
 	}
 	
 	
@@ -203,8 +208,8 @@ public final class CallHandler {
 	    if(guid!=null && guid.length()>0) handler.GUID =  guid;
 	    
 	    
-	    int deviceID = (Integer)jsonObject.get("deviceID");
-	    int interval = (Integer)jsonObject.get("interval");
+	    int deviceID = Integer.parseInt(jsonObject.get("deviceID").toString());
+	    int interval = Integer.parseInt(jsonObject.get("interval").toString());
 	    
 	        
 	    if(handler.SensorIntervals != interval) handler.updated = true;
@@ -226,10 +231,11 @@ public final class CallHandler {
 	//	    handler.mapper.put("O2_MIN", (Integer)jsonObject.get("thresHoldSets[3].red_Threshold_Low")); 
 	//	    
 	//	    handler.mapper.put("Salinity_MAX", (Integer)jsonObject.get("thresHoldSets[4].red_Threshold_High")); 
-	//	    handler.mapper.put("Salinity_MIN", (Integer)jsonObject.get("thresHoldSets[4].red_Threshold_Low")); 	  
+	//	    handler.mapper.put("Salinity_MIN", (Integer)jsonObject.get("thresHoldSets[4].red_Threshold_Low"));
+			System.out.println("Device settings are stored from response");
 		}
 		}catch(Exception e){
-			System.err.println("Encountered problem in mapNewSettings: "+e.getMessage());
+			System.err.println("Encountered problem in mapNewSettings: "+e.getMessage()+" ,Param: "+response);
 			logger.log(Level.WARNING, "Encountered problem in mapNewSettings: Stack: "+e.toString()+" , Param: "+response); 
 		}
 	    
