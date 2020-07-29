@@ -16,11 +16,13 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
@@ -201,37 +203,70 @@ public final class CallHandler {
 
 	private void mapNewSettings(String response){
 		try{
+		    handler.updated = false;
 		Object obj=JSONValue.parse(response);  
 	    JSONObject jsonObject = (JSONObject) obj;  
-	    handler.updated = false;
 	    String guid = (String) jsonObject.get("newGuid");  //store new token
 	    if(guid!=null && guid.length()>0) handler.GUID =  guid;
 	    
-	    
+	    JSONArray thresHoldSets = (JSONArray) jsonObject.get("thresHoldSets");
+	    @SuppressWarnings("unchecked")
+		Iterator<JSONObject> it = thresHoldSets.iterator();
+	    float[] max = new float[5];;
+	    float[] min= new float[5];
+	    int i =0;
+        while (it.hasNext()) {
+        	JSONObject ob = it.next();
+            max[i] = Float.parseFloat(ob.get("red_Threshold_High").toString());
+            min[i] = Float.parseFloat(ob.get("red_Threshold_Low").toString());
+            i++;
+        }
+
 	    int deviceID = Integer.parseInt(jsonObject.get("deviceID").toString());
 	    int interval = Integer.parseInt(jsonObject.get("interval").toString());
+	    float Temperature_MAX = max[0];
+	    float Temperature_MIN = min[0];
+	    float Ph_MAX = max[1];
+	    float Ph_MIN = min[1];
+	    float Turbidity_MAX = max[2];
+	    float Turbidity_MIN = min[2];
+	    float O2_MAX = max[3];
+	    float O2_MIN = min[3];
+	    float Salinity_MAX = max[4];
+	    float Salinity_MIN = min[4];
 	    
 	        
 	    if(handler.SensorIntervals != interval) handler.updated = true;
+	    else if(handler.Temperature_MAX != Temperature_MAX) handler.updated = true;
+	    else if(handler.Temperature_MIN != Temperature_MIN) handler.updated = true;
+	    else if(handler.Ph_MAX != Ph_MAX) handler.updated = true;
+	    else if(handler.Ph_MIN != Ph_MIN) handler.updated = true;
+	    else if(handler.Turbidity_MAX != Turbidity_MAX) handler.updated = true;
+	    else if(handler.Turbidity_MIN != Turbidity_MIN) handler.updated = true;
+	    else if(handler.O2_MAX != O2_MAX) handler.updated = true;
+	    else if(handler.O2_MIN != O2_MIN) handler.updated = true;
+	    else if(handler.Salinity_MAX != Salinity_MAX) handler.updated = true;
+	    else if(handler.Salinity_MIN != Salinity_MIN) handler.updated = true;
 	    
 	    handler.MyDeviceID = deviceID;
 		if (handler.updated) {
 			handler.SensorIntervals = interval;
 
-	//	    handler.mapper.put("Temperature_MAX", (Integer)jsonObject.get("thresHoldSets[0].red_Threshold_High")); 
-	//	    handler.mapper.put("Temperature_MIN", (Integer)jsonObject.get("thresHoldSets[0].red_Threshold_Low")); 
-	//	    
-	//	    handler.mapper.put("Ph_MAX", (Integer)jsonObject.get("thresHoldSets[1].red_Threshold_High")); 
-	//	    handler.mapper.put("Ph_MIN", (Integer)jsonObject.get("thresHoldSets[1].red_Threshold_Low")); 
-	//	    
-	//	    handler.mapper.put("Turbidity_MAX", (Integer)jsonObject.get("thresHoldSets[2].red_Threshold_High")); 
-	//	    handler.mapper.put("Turbidity_MIN", (Integer)jsonObject.get("thresHoldSets[2].red_Threshold_Low")); 
-	//
-	//	    handler.mapper.put("O2_MAX", (Integer)jsonObject.get("thresHoldSets[3].red_Threshold_High")); 
-	//	    handler.mapper.put("O2_MIN", (Integer)jsonObject.get("thresHoldSets[3].red_Threshold_Low")); 
-	//	    
-	//	    handler.mapper.put("Salinity_MAX", (Integer)jsonObject.get("thresHoldSets[4].red_Threshold_High")); 
-	//	    handler.mapper.put("Salinity_MIN", (Integer)jsonObject.get("thresHoldSets[4].red_Threshold_Low"));
+			handler.Temperature_MAX = Temperature_MAX;
+			handler.Temperature_MIN = Temperature_MIN;
+			
+			handler.Ph_MAX = Ph_MAX;
+			handler.Ph_MIN = Ph_MIN;
+			
+			handler.Turbidity_MAX = Turbidity_MAX;
+			handler.Turbidity_MIN = Turbidity_MIN;
+			
+			handler.O2_MAX = O2_MAX;
+			handler.O2_MIN = O2_MIN;
+			
+			handler.Salinity_MAX = Salinity_MAX;
+			handler.Salinity_MIN = Salinity_MIN;
+			
 			System.out.println("Device settings are stored from response");
 		}
 		}catch(Exception e){

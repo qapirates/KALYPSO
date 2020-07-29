@@ -67,15 +67,15 @@ public class Startup {
 				handle.sendBufferedDataToTheHost(payBuff, httpCallHandler, payload, gpio);
 				
 				temperature = (float) gpio.getWaterTemperature();
-				System.out.println("---->\nWATER TEMPERATURE: "+temperature);
+				System.out.println("---->\nWATER TEMPERATURE (C): "+temperature);
 				pH = (float) gpio.getWaterpH();
 				System.out.println("WATER pH: "+pH);
 				particles = (float) gpio.getWaterTurbidity();
-				System.out.println("WATER PARTICLES: "+particles);
+				System.out.println("WATER PARTICLES (mg/L): "+particles);
 				o2 = (float) gpio.getWaterO2();
-				System.out.println("WATER DISSOLVED OXYGEN: "+o2);
-				salinity = (float) gpio.getWaterSalinity();
-				System.out.println("WATER SALINITY: "+salinity);				
+				System.out.println("WATER DISSOLVED OXYGEN (mg/L): "+o2);
+				salinity = (float) gpio.getWaterAmmonia();
+				System.out.println("WATER Ammonia (mg/L): "+salinity);				
 				dateTimeNow = format.format(new Date()).replace(" ", "T");
 				
 				boolean isSuccess = httpCallHandler.PostMethod(Singletons.POST_AND_GETSettings, payload.
@@ -88,6 +88,8 @@ public class Startup {
 				else{ 
 					gpio.indicateProcessOk();
 				}
+				
+				alert(handle, temperature, pH, particles, o2, salinity);
 				
 				handle.updateDeviceSettings(payBuff);
 				
@@ -105,6 +107,38 @@ public class Startup {
 	}
 
 
+	private static void alert(DataHandler handle, float temperature, float pH, float particles, float o2, float salinity){
+		if(temperature > handle.Temperature_MAX){
+			System.out.println("------------------\nALERT AS TEMPERATURE IS HIGHER THAN THE LIMIT!!\n---------------------");
+		}
+		if(temperature <  handle.Temperature_MIN){
+			System.out.println("------------------\nALERT AS TEMPERATURE IS LOWER THAN THE LIMIT!!\n---------------------");
+		}
+		if(pH > handle.Ph_MAX){
+			System.out.println("------------------\nALERT AS pH IS HIGHER THAN THE LIMIT!!\n---------------------");
+		}
+		if(pH <  handle.Ph_MIN){
+			System.out.println("------------------\nALERT AS pH IS LOWER THAN THE LIMIT!!\n---------------------");
+		}
+		if(particles > handle.Turbidity_MAX){
+			System.out.println("------------------\nALERT AS TURBIDITY IS HIGHER THAN THE LIMIT!!\n---------------------");
+		}
+		if(particles <  handle.Turbidity_MIN){
+			System.out.println("------------------\nALERT AS TURBIDITY IS LOWER THAN THE LIMIT!!\n---------------------");
+		}
+		if(o2 > handle.O2_MAX){
+			System.out.println("------------------\nALERT AS DOx IS HIGHER THAN THE LIMIT!!\n---------------------");
+		}
+		if(o2 <  handle.O2_MIN){
+			System.out.println("------------------\nALERT AS DOx IS LOWER THAN THE LIMIT!!\n---------------------");
+		}
+		if(salinity > handle.Salinity_MAX){
+			System.out.println("------------------\nALERT AS AMMONIA LEVEL IS HIGHER THAN THE LIMIT!!\n---------------------");
+		}
+		if(salinity <  handle.Salinity_MIN){
+			System.out.println("------------------\nALERT AS AMMONIA LEVEL IS LOWER THAN THE LIMIT!!\n---------------------");
+		}
+	}
 
 
 	private static void infos(){

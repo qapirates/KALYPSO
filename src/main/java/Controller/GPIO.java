@@ -30,9 +30,9 @@ public final class GPIO implements Singletons {
 	private Logger _logger = null;
 	private double _temperatureValueInCelc;
 	private double _pHValue;
-	private double _turbidityInNTU;
+	private double _turbidityInmgL;
 	private double _waterDoInMgL;
-	private double _waterSalinityInPpm;
+	private double _waterSalinityInmgL;
 	private GpioController _gpio = null;
 	private GpioPinDigitalOutput pin29 = null; // led
 	private W1Master w1Master = null; 
@@ -42,17 +42,17 @@ public final class GPIO implements Singletons {
 		w1Master = new W1Master();
 		_temperatureValueInCelc = Float.MIN_VALUE; //init with limit
 		_pHValue = Float.MIN_VALUE;
-		_turbidityInNTU = Float.MIN_VALUE;
+		_turbidityInmgL = Float.MIN_VALUE;
 		_waterDoInMgL = Float.MIN_VALUE;
-		_waterSalinityInPpm = Float.MIN_VALUE;
+		_waterSalinityInmgL = Float.MIN_VALUE;
 	}
 	
 	public void resetGPIOInternalParams() {
 		_temperatureValueInCelc = Float.MIN_VALUE;
 		_pHValue = Float.MIN_VALUE;
-		_turbidityInNTU = Float.MIN_VALUE;
+		_turbidityInmgL = Float.MIN_VALUE;
 		_waterDoInMgL = Float.MIN_VALUE;
-		_waterSalinityInPpm = Float.MIN_VALUE;
+		_waterSalinityInmgL = Float.MIN_VALUE;
 		resetGPIOs();
 	}
 	
@@ -83,16 +83,16 @@ public final class GPIO implements Singletons {
 		return _pHValue;
 	}	
 	public double getWaterTurbidity(){
-		_turbidityInNTU = 5.01f;  //ideal
-		return _turbidityInNTU;
+		_turbidityInmgL = 900.1f;  //alerted
+		return _turbidityInmgL;
 	}	
 	public double getWaterO2(){
 		_waterDoInMgL = 7.12f;  //ideal
 		return _waterDoInMgL;
 	}
-	public double getWaterSalinity(){
-		_waterSalinityInPpm = 3000.00f ;  //ideal
-		return _waterSalinityInPpm;
+	public double getWaterAmmonia(){  //Ammonia
+		_waterSalinityInmgL =  0.50f ;  //ideal
+		return _waterSalinityInmgL;
 	}
 
 

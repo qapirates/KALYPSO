@@ -24,6 +24,16 @@ public final class DataHandler implements Singletons{
 	
 	public int MyDeviceID;
 	public int SensorIntervals;
+	public float Temperature_MAX;
+	public float Temperature_MIN;
+	public float Ph_MAX;
+	public float Ph_MIN;
+	public float Turbidity_MAX;
+	public float Turbidity_MIN;
+	public float O2_MAX;
+	public float O2_MIN;
+	public float Salinity_MAX;
+	public float Salinity_MIN;
 	public DataHandler(Logger logger) {
 		this._logger = logger;
 		this.GUID = "sdff=Jhgd-dj_747uyh4-djdui54smdu";
@@ -36,7 +46,19 @@ public final class DataHandler implements Singletons{
 		}
 		buff.reformBuffer(SensorIntervals);	
 		
-		System.out.println("Device settings are updated\n\n");
+		System.err.println("Device settings are updated--");
+		System.out.println("SensorIntervals: "+SensorIntervals);
+		System.out.println("Temperature_MAX: "+Temperature_MAX);
+		System.out.println("Temperature_MIN: "+Temperature_MIN);
+		System.out.println("Ph_MAX: "+Ph_MAX);
+		System.out.println("Ph_MIN: "+Ph_MIN);
+		System.out.println("Turbidity_MAX: "+Turbidity_MAX);
+		System.out.println("Turbidity_MIN: "+Turbidity_MIN);
+		System.out.println("O2_MAX: "+O2_MAX);
+		System.out.println("O2_MIN: "+O2_MIN);
+		System.out.println("Ammonia_MAX: "+Salinity_MAX);
+		System.out.println("Ammonia_MIN: "+Salinity_MIN);
+		System.out.println("\n\n");
 		}catch(Exception e){
 			System.err.println("Encountered problem in updateDeviceSettings: "+e.getMessage());
 			_logger.log(Level.WARNING, "Encountered problem in updateDeviceSettings: Stack: "+e.toString()); 
